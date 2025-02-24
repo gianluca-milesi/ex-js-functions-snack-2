@@ -87,7 +87,7 @@ creaContatoreAutomatico(1000)
 //SNACK 7
 //Crea una funzione che ferma un timer dopo un certo tempo
 function eseguiEferma(messaggio, avvio, stop) {
-    
+
     let intervallo
 
     setTimeout(() => {
@@ -102,3 +102,22 @@ function eseguiEferma(messaggio, avvio, stop) {
 }
 
 eseguiEferma("ciao", 1000, 5000)
+
+
+//SNACK 8
+//Crea una funzione che simula un conto alla rovescia
+function contoAllaRovescia(n) {
+
+    let contatore = n
+
+    const intervallo = setInterval(() => {
+        if (contatore > 0) {
+            console.log(contatore--)
+        } else {
+            clearInterval(intervallo)
+            console.log("Tempo scaduto!")
+        }
+    }, 1000)
+}
+
+contoAllaRovescia(4)
