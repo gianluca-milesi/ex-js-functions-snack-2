@@ -18,7 +18,7 @@ console.log(somma(2, 2))
 
 //SNACK 2
 //Crea una arrow function che calcola il quadrato di un numero.
-const quadrato = (num) => (num ** 2)
+const quadrato = (n) => (n ** 2)
 console.log(quadrato(3))
 
 
@@ -75,28 +75,27 @@ setTimeout(() => {
 function creaContatoreAutomatico(intervallo) {
 
     let contatore = 0
-
-    setInterval(() => {
-        console.log(contatore++)
-    }, intervallo)
+    return () => {
+        setInterval(() => {
+            contatore++
+            console.log(contatore)
+        }, intervallo)
+    }
 }
 
-creaContatoreAutomatico(1000)
+const contaOgniSecondo = creaContatoreAutomatico(1000)
+contaOgniSecondo()
 
 
 //SNACK 7
 //Crea una funzione che ferma un timer dopo un certo tempo
-function eseguiEferma(messaggio, avvio, stop) {
+function eseguiEferma(messaggio, avvio, stop){
 
-    let intervallo
-
-    setTimeout(() => {
-        intervallo = setInterval(() => {
-            console.log(messaggio)
-        }, 1000)
+    const intervallo = setInterval(()=>{
+        console.log(messaggio)
     }, avvio)
 
-    setTimeout(() => {
+    setTimeout(()=>{
         clearInterval(intervallo)
     }, stop)
 }
