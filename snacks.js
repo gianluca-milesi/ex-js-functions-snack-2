@@ -20,3 +20,21 @@ console.log(somma(2, 2))
 //Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
 const quadrato = (num) => (num ** 2)
 console.log(quadrato(3))
+
+
+//SNACK 3
+//Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
+const eseguiOperazione = (a, b, operazione) => (operazione(a, b))
+
+const somma = (a, b) => (a + b)
+const sottrazione = (a, b) => (a - b)
+
+console.log(eseguiOperazione(2, 2, somma))
+console.log(eseguiOperazione(2, 2, sottrazione))
+
+//dichiarativa
+function eseguiOperazione(a, b, operazione) {
+    return operazione(a, b)
+}
+
+console.log(eseguiOperazione(2, 2, somma))
