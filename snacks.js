@@ -120,4 +120,36 @@ function contoAllaRovescia(n) {
     }, 1000)
 }
 
-contoAllaRovescia(4)
+contoAllaRovescia(5)
+
+
+//SNACK 9
+//Creare una funzione che esegue una sequenza di operazioni con ritardi
+function somma(a, b) {
+    return a + b
+}
+function sottrazione(a, b) {
+    return a - b
+}
+function moltiplicazione(a, b) {
+    return a * b
+}
+
+function sequenzaOperazioni(operazioni, intervallo) {
+
+    let i = 0
+    const eseguiOperazioni = setInterval(() => {
+        if (i < operazioni.length) {
+            operazioni[i]()
+            i++
+        } else {
+            clearInterval(eseguiOperazioni)
+        }
+    }, intervallo)
+}
+
+sequenzaOperazioni([
+    () => console.log(somma(2, 2)),
+    () => console.log(sottrazione(2, 2)),
+    () => console.log(moltiplicazione(2, 2)),
+], 2000)
