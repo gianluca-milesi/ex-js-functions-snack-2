@@ -52,3 +52,19 @@ function creaTimer(tempo) {
 
 const timer = creaTimer(1000)
 timer();
+
+
+//SNACK 5
+//Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+function stampaOgniSecondo(messaggio) {
+    const intervallo = setInterval(() => {
+        console.log(messaggio)
+    }, 1000)
+}
+
+const intervallo = stampaOgniSecondo("Ciao")
+
+setTimeout(() => {
+    clearInterval(intervallo)
+    console.log("Stop")
+}, 5000)
