@@ -17,13 +17,13 @@ console.log(somma(2, 2))
 
 
 //SNACK 2
-//Definisci una funzione chiamata quadrato che accetta un numero e restituisce il suo quadrato in una sola riga.
+//Crea una arrow function che calcola il quadrato di un numero.
 const quadrato = (num) => (num ** 2)
 console.log(quadrato(3))
 
 
 //SNACK 3
-//Definisci una funzione eseguiOperazione che accetta tre parametri: due numeri e una funzione operatore (callback). La funzione deve eseguire l'operazione fornita sui due numeri.
+//Crea una funzione eseguiOperazione
 const eseguiOperazione = (a, b, operazione) => (operazione(a, b))
 
 const somma = (a, b) => (a + b)
@@ -41,7 +41,7 @@ console.log(eseguiOperazione(2, 2, somma))
 
 
 //SNACK 4
-//Scrivi una funzione creaTimer che accetta un tempo (in ms) e restituisce una nuova funzione che avvia un setTimeout per stampare "Tempo scaduto!".
+//Crea un generatore di funzioni creaTimer
 function creaTimer(tempo) {
     return () => (
         setTimeout(() => {
@@ -55,7 +55,7 @@ timer();
 
 
 //SNACK 5
-//Definisci una funzione che accetta un messaggio e lo stampa ogni secondo.
+//Crea una funzione stampaOgniSecondo con setInterval.
 function stampaOgniSecondo(messaggio) {
     const intervallo = setInterval(() => {
         console.log(messaggio)
@@ -71,7 +71,7 @@ setTimeout(() => {
 
 
 //SNACK 6
-//Definisci una funzione creaContatoreAutomatico che accetta un intervallo di tempo e restituisce una funzione che avvia un setInterval, incrementando un contatore e stampandolo.
+//Crea un contatore automatico con setInterval
 function creaContatoreAutomatico(intervallo) {
 
     let contatore = 0
@@ -82,3 +82,23 @@ function creaContatoreAutomatico(intervallo) {
 }
 
 creaContatoreAutomatico(1000)
+
+
+//SNACK 7
+//Crea una funzione che ferma un timer dopo un certo tempo
+function eseguiEferma(messaggio, avvio, stop) {
+    
+    let intervallo
+
+    setTimeout(() => {
+        intervallo = setInterval(() => {
+            console.log(messaggio)
+        }, 1000)
+    }, avvio)
+
+    setTimeout(() => {
+        clearInterval(intervallo)
+    }, stop)
+}
+
+eseguiEferma("ciao", 1000, 5000)
