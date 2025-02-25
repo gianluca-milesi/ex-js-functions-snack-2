@@ -89,13 +89,13 @@ contaOgniSecondo()
 
 //SNACK 7
 //Crea una funzione che ferma un timer dopo un certo tempo
-function eseguiEferma(messaggio, avvio, stop){
+function eseguiEferma(messaggio, avvio, stop) {
 
-    const intervallo = setInterval(()=>{
+    const intervallo = setInterval(() => {
         console.log(messaggio)
     }, avvio)
 
-    setTimeout(()=>{
+    setTimeout(() => {
         clearInterval(intervallo)
     }, stop)
 }
@@ -152,3 +152,27 @@ sequenzaOperazioni([
     () => console.log(sottrazione(2, 2)),
     () => console.log(moltiplicazione(2, 2)),
 ], 2000)
+
+
+//SNACK 10
+//Creare un throttler per limitare l’esecuzione di una funzione
+function creaThrottler(callback, limite) {
+
+    let ultimaEsecuzione = 0
+
+    return function (...args) {
+        const ora = Date.now()
+
+        if (ora - ultimaEsecuzione >= limite) {
+            ultimaEsecuzione = ora
+            callback(...args)
+        } else {
+            console.log("Non posso eseguire")
+        }
+    }
+}
+
+const throttleLog = creaThrottler(() => console.log("Eseguito"), 2000)
+throttleLog() //Esegue
+throttleLog() //Non esegue
+setTimeout(throttleLog, 2500) //Esegue
